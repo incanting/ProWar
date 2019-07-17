@@ -111,6 +111,24 @@ for Allbots in Jaka:
         try:
             Allbots.findAndAddContactsByMid(botKickers)
         except:pass
+def logError(text):
+    me.log("[INEXBOTS]" + str(text))
+    tz = pytz.timezone("Asia/Jakarta")
+    timeNow = datetime.now(tz=tz)
+    timeHours = datetime.strftime(timeNow,"(%H:%M)")
+    day = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday","Friday", "Saturday"]
+    hari = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"]
+    bulan = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"]
+    inihari = datetime.now(tz=tz)
+    hr = inihari.strftime('%A')
+    bln = inihari.strftime('%m')
+    for i in range(len(day)):
+        if hr == day[i]: hasil = hari[i]
+    for k in range(0, len(bulan)):
+        if bln == str(k): bln = bulan[k-1]
+    time = hasil + ", " + inihari.strftime('%d') + " - " + bln + " - " + inihari.strftime('%Y') + " | " + inihari.strftime('%H:%M:%S')
+    with open("errorLog.txt","a") as error:
+        error.write("\n[%s] %s" % (str(time), text))
 def backupData():
     try:
         backup = InexBots
@@ -121,8 +139,7 @@ def backupData():
         json.dump(backup, f, sort_keys=True, indent=4, ensure_ascii=False)
         return True
     except Exception as error:
-        ErrorX(error)
-        return False
+        logError(error)
 def runtime(secs):
     mins, secs = divmod(secs,60)
     hours, mins = divmod(mins,60)
@@ -227,7 +244,7 @@ def sendMention(to, mid, firstmessage, lastmessage):
         text += mention + str(lastmessage)
         me.sendMessage(to, text, {'MENTION': str('{"MENTIONEES":' + json.dumps(arr) + '}')}, 0)
     except Exception as error:
-        ErrorX(error)
+        logError(error)
         me.sendMessage(to, "Error\n\n" + str(error))
 extras = Extr+"\n"
 def RunTheRun(to, mid, firstmessage):
@@ -257,6 +274,7 @@ def RunTheRun(to, mid, firstmessage):
         text += mention+"WAKTU : "+datetime.strftime(timeNow,'%H:%M:%S')+" INDONESIA\n\nMY GROUP : "+str(len(gid))+"\n\nMY FRIEND: "+str(len(teman))+"\n\nTIME VPS : In "+hari+"\n\nINEX_TEAM. ʟɪɴᴇ ᴠᴇʀ.8.14.2\n\nTANGGAL : "+datetime.strftime(timeNow,'%Y-%m-%d')+"\n\nTIME RUN : \n • "+bot+"\n\nMY TOKEN : "+str(me.authToken)+"\n\nMY MID : "+h.mid+"\n\nMY ID LINE : "+My_Id
         me.sendMessage(to, text, {'MENTION': str('{"MENTIONEES":' + json.dumps(arr) + '}')}, 0)
     except Exception as error:
+        logError(error)
         me.sendMessage(to, "Error :\n" + str(error))
 def atend1():
     print("Saving")
@@ -427,69 +445,79 @@ def invt(grup, target):
 
 def backp(grup, target):
     try:
-        kk1.inviteIntoGroup(grup, [target])
+        asd = kk1.inviteIntoGroup(grup, [target])
         if target == InexWars:
-            me.acceptGroupInvitation(grup)
-            kk2.acceptGroupInvitation(grup)
-            kk2.kickoutFromGroup(grup, [rank.param2])
-            kk3.acceptGroupInvitation(grup)
-            kk3.kickoutFromGroup(grup, [rank.param2])
-            kk4.acceptGroupInvitation(grup)
-            kk4.kickoutFromGroup(grup, [rank.param2])
-            kk5.acceptGroupInvitation(grup)
-            kk5.kickoutFromGroup(grup, [rank.param2])
+            asd = me.acceptGroupInvitation(grup)
+            asd = kk2.acceptGroupInvitation(grup)
+            asd = kk2.kickoutFromGroup(grup, [rank.param2])
+            asd = kk3.acceptGroupInvitation(grup)
+            asd = kk3.kickoutFromGroup(grup, [rank.param2])
+            asd = kk4.acceptGroupInvitation(grup)
+            asd = kk4.kickoutFromGroup(grup, [rank.param2])
+            asd = kk5.acceptGroupInvitation(grup)
+            asd = kk5.kickoutFromGroup(grup, [rank.param2])
+            if asd != None:
+                mbutfaild
     except:
         try:
-            kk2.inviteIntoGroup(grup, [target])
+            asd = kk2.inviteIntoGroup(grup, [target])
             if target == InexWars:
-                me.acceptGroupInvitation(grup)
-                kk1.acceptGroupInvitation(grup)
-                kk1.kickoutFromGroup(grup, [rank.param2])
-                kk3.acceptGroupInvitation(grup)
-                kk3.kickoutFromGroup(grup, [rank.param2])
-                kk4.acceptGroupInvitation(grup)
-                kk4.kickoutFromGroup(grup, [rank.param2])
-                kk5.acceptGroupInvitation(grup)
-                kk5.kickoutFromGroup(grup, [rank.param2])
+                asd = me.acceptGroupInvitation(grup)
+                asd = kk1.acceptGroupInvitation(grup)
+                asd = kk1.kickoutFromGroup(grup, [rank.param2])
+                asd = kk3.acceptGroupInvitation(grup)
+                asd = kk3.kickoutFromGroup(grup, [rank.param2])
+                asd = kk4.acceptGroupInvitation(grup)
+                asd = kk4.kickoutFromGroup(grup, [rank.param2])
+                asd = kk5.acceptGroupInvitation(grup)
+                asd = kk5.kickoutFromGroup(grup, [rank.param2])
+                if asd != None:
+                    mbutfaild
         except:
             try:
-                k3.inviteIntoGroup(grup, [target])
+                asd = k3.inviteIntoGroup(grup, [target])
                 if target == InexWars:
-                    me.acceptGroupInvitation(grup)
-                    kk1.acceptGroupInvitation(grup)
-                    kk1.kickoutFromGroup(grup, [rank.param2])
-                    kk2.acceptGroupInvitation(grup)
-                    kk2.kickoutFromGroup(grup, [rank.param2])
-                    kk4.acceptGroupInvitation(grup)
-                    kk4.kickoutFromGroup(grup, [rank.param2])
-                    kk5.acceptGroupInvitation(grup)
-                    kk5.kickoutFromGroup(grup, [rank.param2])
+                    asd = me.acceptGroupInvitation(grup)
+                    asd = kk1.acceptGroupInvitation(grup)
+                    asd = kk1.kickoutFromGroup(grup, [rank.param2])
+                    asd = kk2.acceptGroupInvitation(grup)
+                    asd = kk2.kickoutFromGroup(grup, [rank.param2])
+                    asd = kk4.acceptGroupInvitation(grup)
+                    asd = kk4.kickoutFromGroup(grup, [rank.param2])
+                    asd = kk5.acceptGroupInvitation(grup)
+                    asd = kk5.kickoutFromGroup(grup, [rank.param2])
+                    if asd != None:
+                        mbutfaild
             except:
                 try:
-                    kk4.inviteIntoGroup(grup, [target])
+                    asd = kk4.inviteIntoGroup(grup, [target])
                     if target == InexWars:
-                        me.acceptGroupInvitation(grup)
-                        kk1.acceptGroupInvitation(grup)
-                        kk1.kickoutFromGroup(grup, [rank.param2])
-                        kk2.acceptGroupInvitation(grup)
-                        kk2.kickoutFromGroup(grup, [rank.param2])
-                        kk3.acceptGroupInvitation(grup)
-                        kk3.kickoutFromGroup(grup, [rank.param2])
-                        kk5.acceptGroupInvitation(grup)
-                        kk5.kickoutFromGroup(grup, [rank.param2])
+                        asd = me.acceptGroupInvitation(grup)
+                        asd = kk1.acceptGroupInvitation(grup)
+                        asd = kk1.kickoutFromGroup(grup, [rank.param2])
+                        asd = kk2.acceptGroupInvitation(grup)
+                        asd = kk2.kickoutFromGroup(grup, [rank.param2])
+                        asd = kk3.acceptGroupInvitation(grup)
+                        asd = kk3.kickoutFromGroup(grup, [rank.param2])
+                        asd = kk5.acceptGroupInvitation(grup)
+                        asd = kk5.kickoutFromGroup(grup, [rank.param2])
+                        if asd != None:
+                            mbutfaild
                 except:
                     try:
-                        kk5.inviteIntoGroup(grup, [target])
+                        asd = kk5.inviteIntoGroup(grup, [target])
                         if target == InexWars:
-                            me.acceptGroupInvitation(grup)
-                            kk1.acceptGroupInvitation(grup)
-                            kk1.kickoutFromGroup(grup, [rank.param2])
-                            kk2.acceptGroupInvitation(grup)
-                            kk2.kickoutFromGroup(grup, [rank.param2])
-                            kk3.acceptGroupInvitation(grup)
-                            kk3.kickoutFromGroup(grup, [rank.param2])
-                            kk4.acceptGroupInvitation(grup)
-                            kk4.kickoutFromGroup(grup, [rank.param2])
+                            asd = me.acceptGroupInvitation(grup)
+                            asd = kk1.acceptGroupInvitation(grup)
+                            asd = kk1.kickoutFromGroup(grup, [rank.param2])
+                            asd = kk2.acceptGroupInvitation(grup)
+                            asd = kk2.kickoutFromGroup(grup, [rank.param2])
+                            asd = kk3.acceptGroupInvitation(grup)
+                            asd = kk3.kickoutFromGroup(grup, [rank.param2])
+                            asd = kk4.acceptGroupInvitation(grup)
+                            asd = kk4.kickoutFromGroup(grup, [rank.param2])
+                            if asd != None:
+                                mbutfaild
                     except:
                         pass
 
@@ -497,7 +525,7 @@ def black(target):
     if rank.param2 in InexBots["blacklist"]:
         ["blacklist"].append(target)
 
-warKey = """╭━──────────────━╮
+Helps = """╭━──────────────━╮
 │➢      xᴛᴄ ᴍᴇɴᴜ
 ╰━──────────────━╯
 ╭━──────────────━╮
@@ -547,9 +575,6 @@ def serviceX(rank):
                 t2.start()
                 t3 = Thread(target=black, args=(Musuhku,))
                 t3.start()
-                t30 = Thread(target=ajs, args=(Rumahku,Musuhku))
-                t30.start()
-
         if rank.type == 17:
           if Musuhku not in InexWars and Musuhku not in Owner and Musuhku not in meM:
             if Musuhku in InexBots["blacklist"]:
@@ -576,9 +601,6 @@ def serviceX(rank):
                 t10.start()
                 t11 = Thread(target=black, args=(Musuhku,))
                 t11.start()
-                t110 = Thread(target=ajs, args=(Rumahku, Musuhku,))
-                t110.start()
-
             if Temanku in InexWars:
                 t12 = Thread(target=backp, args=(Rumahku, Temanku))
                 t12.start()
@@ -589,73 +611,28 @@ def serviceX(rank):
                 t13.start()
                 t14 = Thread(target=black, args=(Musuhku,))
                 t14.start()
-                t140 = Thread(target=ajs, args=(Rumahku, Musuhku,))
-                t140.start()
         if rank.type == 0:
             return
         if rank.type == 11:
             if Rumahku in pro["Pintu"]:
-                try:
-                    if kk1.getGroup(Rumahku).preventedJoinByTicket == False:
-                        if Musuhku not in InexWars and Musuhku not in Owner and Musuhku not in meM:
-                            kk1.reissueGroupTicket(Rumahku)
-                            X = kk1.getGroup(Rumahku)
-                            X.preventedJoinByTicket = True
-                            kk1.updateGroup(X)
-                            kk1.kickoutFromGroup(Rumahku,[Musuhku])
-                except:
-                    try:
-                        if kk2.getGroup(Rumahku).preventedJoinByTicket == False:
-                            if Musuhku not in InexWars and Musuhku not in Owner and Musuhku not in meM:
-                                kk2.reissueGroupTicket(Rumahku)
-                                X = kk2.getGroup(Rumahku)
-                                X.preventedJoinByTicket = True
-                                kk2.updateGroup(X)
-                                kk2.kickoutFromGroup(Rumahku,[Musuhku])
-                    except:
-                        try:
-                            if kk3.getGroup(Rumahku).preventedJoinByTicket == False:
-                                if Musuhku not in InexWars and Musuhku not in Owner and Musuhku not in meM:
-                                    kk3.reissueGroupTicket(Rumahku)
-                                    X = kk3.getGroup(Rumahku)
-                                    X.preventedJoinByTicket = True
-                                    kk3.updateGroup(X)
-                                    kk3.kickoutFromGroup(Rumahku,[Musuhku])
-                        except:
-                            try:
-                                if kk4.getGroup(Rumahku).preventedJoinByTicket == False:
-                                    if Musuhku not in InexWars and Musuhku not in Owner and Musuhku not in meM:
-                                        kk4.reissueGroupTicket(Rumahku)
-                                        X = kk4.getGroup(Rumahku)
-                                        X.preventedJoinByTicket = True
-                                        kk4.updateGroup(X)
-                                        kk4.kickoutFromGroup(Rumahku,[Musuhku])
-                            except:
-                                try:
-                                    if kk5.getGroup(Rumahku).preventedJoinByTicket == False:
-                                        if Musuhku not in InexWars and Musuhku not in Owner and Musuhku not in meM:
-                                            kk5.reissueGroupTicket(Rumahku)
-                                            X = kk5.getGroup(Rumahku)
-                                            X.preventedJoinByTicket = True
-                                            kk5.updateGroup(X)
-                                            kk5.kickoutFromGroup(Rumahku,[Musuhku])
-                                except:
-                                    try:
-                                        if me.getGroup(Rumahku).preventedJoinByTicket == False:
-                                            if Musuhku not in InexWars and Musuhku not in Owner and Musuhku not in meM:
-                                                Z = me.getGroup(Rumahku)
-                                                Z.preventedJoinByTicket = False
-                                                Terbuka = me.reissueGroupTicket(Rumahku)
-                                                jss.acceptGroupInvitationByTicket(Rumahku,Terbuka)
-                                                X = jss.getGroup(Rumahku)
-                                                X.preventedJoinByTicket = True
-                                                jss.updateGroup(X)
-                                                jss.sendMessage(Rumahku, "Jangan mainan Qr")
-                                                jss.kickoutFromGroup(Rumahku,[Musuhku])
-                                                jss.leaveGroup(Rumahku)
-                                                me.inviteIntoGroup(Rumahku,[Antijs])
-                                    except:
-                                        pass
+                if Musuhku in InexWars or Musuhku in Owner or Musuhku in meM:pass
+                else:
+                    Z = me.getGroup(Rumahku)
+                    if Z.preventedJoinByTicket == False:
+                        Z.preventedJoinByTicket = True
+                        random.choice(Jaka).updateGroup(Z)
+                        random.choice(Jaka).kickoutFromGroup(Rumahku,[Musuhku])
+                        InexBots["blacklist"][Musuhku] = True
+                    else:
+                        random.choice(Jaka).kickoutFromGroup(Rumahku,[Musuhku])
+            if Musuhku in InexBots["blacklist"]:
+                Z = me.getGroup(Rumahku)
+                if Z.preventedJoinByTicket == False:
+                    Z.preventedJoinByTicket = True
+                    random.choice(Jaka).updateGroup(Z)
+                    random.choice(Jaka).kickoutFromGroup(Rumahku,[Musuhku])
+                else:
+                    random.choice(Jaka).kickoutFromGroup(Rumahku,[Musuhku])
         if rank.type == 19:
             if Rumahku in pro["Pembunuh"]:
                 if Musuhku not in InexWars and Musuhku not in Owner and Musuhku not in meM:
@@ -663,7 +640,63 @@ def serviceX(rank):
                     random.choice(Jaka).kickoutFromGroup(Rumahku,[Musuhku])
                 else:
                     pass
-
+        if rank.type == 19:
+            if Temanku in InexWars:
+                if Musuhku not in InexWars or Musuhku not in Owner and Musuhku not in meM:
+                    InexBots["blacklist"][Musuhku] = True
+                    try:
+                        kk1.kickoutFromGroup(Rumanku,[Musuhku])
+                        kk1.inviteIntoGroup(Rumanku,[Temanku])
+                    except:
+                        try:
+                            kk2.kickoutFromGroup(Rumanku,[Musuhku])
+                            kk2.inviteIntoGroup(Rumanku,[Temanku])
+                        except:
+                            try:
+                                kk3.kickoutFromGroup(Rumanku,[Musuhku])
+                                kk3.inviteIntoGroup(Rumanku,[Temanku])
+                            except:
+                                try:
+                                    kk4.kickoutFromGroup(Rumanku,[Musuhku])
+                                    kd.inviteIntoGroup(Rumanku,[Temanku])
+                                except:
+                                    kk5.kickoutFromGroup(Rumanku,[Musuhku])
+                                    kk5.inviteIntoGroup(Rumanku,[Temanku])
+                    else:pass
+                    return
+            if Temanku in Owner:
+                if Musuhku not in InexWars or Musuhku not in Owner and Musuhku not in meM:
+                    InexBots["blacklist"][Musuhku] = True
+                    try:
+                        kk1.findAndAddContactsByMid(Temanku)
+                        kk1.kickoutFromGroup(Rumahku,[Musuhku])
+                        kk1.inviteIntoGroup(Rumahku,[Temanku])
+                    except:
+                        try:
+                            kk2.findAndAddContactsByMid(Temanku)
+                            kk2.kickoutFromGroup(Rumahku,[Musuhku])
+                            kk2.inviteIntoGroup(Rumahku,[Temanku])
+                        except:
+                            try:
+                                kk3.findAndAddContactsByMid(Temanku)
+                                kk3.kickoutFromGroup(Rumahku,[Musuhku])
+                                kk3.inviteIntoGroup(Rumahku,[Temanku])
+                            except:
+                                try:
+                                    kk4.findAndAddContactsByMid(Temanku)
+                                    kk4.kickoutFromGroup(Rumahku,[Musuhku])
+                                    kk4.inviteIntoGroup(Rumahku,[Temanku])
+                                except:
+                                    try:
+                                        kk5.findAndAddContactsByMid(Temanku)
+                                        kk5.kickoutFromGroup(Rumahku,[Musuhku])
+                                        kk5.inviteIntoGroup(Rumahku,[Temanku])
+                                    except:
+                                        random.choice(Jaka).findAndAddContactsByMid(Temanku)
+                                        random.choice(Jaka).kickoutFromGroup(Rumahku,[Musuhku])
+                                        random.choice(Jaka).inviteIntoGroup(Rumahku,[Temanku])
+                else:pass
+                return
         if rank.type == 19:
             try:
                 if Rumahku in pro["Kuntilanak"]:
@@ -683,8 +716,8 @@ def serviceX(rank):
                 pass             
                 
         if rank.type == 19:
-            if Rumahku in pro["Penyelamat"]:
-                try:
+            try:
+                if Rumahku in pro["Penyelamat"]:
                   if Temanku in meM:
                     if Musuhku not in InexWars and Musuhku not in Owner and Musuhku not in meM:
                         jss.acceptGroupInvitation(Rumahku)
@@ -705,8 +738,62 @@ def serviceX(rank):
                         jss.leaveGroup(Rumahku)
                         me.inviteIntoGroup(Rumahku,[Antijs])
                         me.inviteIntoGroup(Rumahku,[Owner])
-                except:
+                    else:
+                        pass
+                if Temanku in Antijs:
+                    if Musuhku not in InexWars and Musuhku not in Owner and Musuhku not in meM:
+                        try:
+                            kk5.kickoutFromGroup(Rumahku,[Musuhku])
+                            kk5.findAndAddContactsByMid(Temanku)
+                            kk5.inviteIntoGroup(Rumahku,[Temanku])
+                        except:
+                            try:
+                                kk1.kickoutFromGroup(Rumahku,[Musuhku])
+                                kk1.findAndAddContactsByMid(Temanku)
+                                k1.inviteIntoGroup(Rumahku,[Temanku])
+                            except:
+                                try:
+                                    kk2.kickoutFromGroup(Rumahku,[Musuhku])
+                                    kk2.findAndAddContactsByMid(Temanku)
+                                    kk2.inviteIntoGroup(Rumahku,[Temanku])
+                                except:
+                                    try:
+                                        kk3.kickoutFromGroup(Rumahku,[Musuhku])
+                                        kk3.findAndAddContactsByMid(Temanku)
+                                        kk3.inviteIntoGroup(Rumahku,[Temanku])
+                                    except:
+                                        try:
+                                            A = me.getGroup(Rumahku)
+                                            A.preventedJoinByTicket = False
+                                            me.updateGroup(A)
+                                            Pintu = me.reissueGroupTicket(Rumahku)
+                                            kk1.acceptGroupInvitationByTicket(Rumahku,Pintu)
+                                            kk2.acceptGroupInvitationByTicket(Rumahku,Pintu)
+                                            kk3.acceptGroupInvitationByTicket(Rumahku,Pintu)
+                                            kk4.acceptGroupInvitationByTicket(Rumahku,Pintu)
+                                            kk5.acceptGroupInvitationByTicket(Rumahku,Pintu)
+                                            random.choice(Jaka).kickoutFromGroup(Rumahku,[Musuhku])
+                                            Z = random.choice(Jaka).getGroup(Rumahku)
+                                            Z.preventedJoinByTicket = True
+                                            random.choice(Jaka).updateGroup(Z)
+                                            random.choice(Jaka).inviteIntoGroup(Rumahku,[Antijs])
+                                            random.choice(Jaka).inviteIntoGroup(Rumahku,[Owner])
+                                            InexBots["blacklist"][Musuhku] = True
+                                        except:
+                                            random.choice(Jaka).inviteIntoGroup(Rumahku,[Temanku])
+                                            random.choice(Jaka).kickoutFromGroup(Rumahku,[Musuhku])
+                if Musuhku not in InexWars and Musuhku not in Owner and Musuhku not in meM:
+                    if Temanku in Owner:
+                        if Rumahku in pro["Penyelamat"]:
+                            InexBots["blacklist"][Musuhku] = True
+                            random.choice(Jaka).kickoutFromGroup(Rumahku,[Musuhku])
+                            random.choice(Jaka).findAndAddContactsByMid(Temanku)
+                            random.choice(Jaka).inviteIntoGroup(Rumahku,[Temanku])
+                else:
                     pass
+            except:
+                pass
+
         if rank.type == 32:
             if Rumahku in pro["Pencuri"]:
                 if Musuhku not in InexWars and Musuhku not in Owner and Musuhku not in meM:
@@ -1310,7 +1397,9 @@ def serviceX(rank):
                         kk5.acceptGroupInvitation(Rumahku)
                         ginfo = kk5.getGroup(Rumahku)
 
-        if rank.type == 26 or rank.type == 25:
+        if rank.type in [25, 26]:
+            if rank.type == 25: print ("[ 25 ] SEND MESSAGE")
+            else: print ("[ 26 ] RECEIVE MESSAGE")
             msg = rank.message
             Keluarga = msg.id
             Pesan = msg.to
@@ -1443,9 +1532,8 @@ def serviceX(rank):
                             else: Res+= Stiles+" respon->『off』\n"
                             Res+= "╰━──────────────━╯\n╭━──────────────━╮\n│➢      xᴛᴄ ᴍᴇɴᴜ\n╰━──────────────━╯\n╭━──────────────━╮\n"
                             Res+= "├━────[SelfName]───━\n"+Stiles+meProfile.displayName+"\n"
-                            me.sendMessage(Line_Apikey,Devert)
                             me.sendMessage(Pesan, str(Res)+Stiles+" https://line.me/ti/p/~denjaka-inexx\n╰━──────────────━╯")
-                            me.sendMessage(Pesan, extras+str(warKey))
+                            me.sendMessage(Pesan, extras+str(Helps))
                         if InexBotsList == Menu["2"]:
                           if Dari in Owner or Dari in meM:
                             me.sendContact(Pesan,meM)
@@ -2043,8 +2131,8 @@ def serviceX(rank):
                                       ret_ += "\n│ @! ".format(str(no))
                                   ret_ += "\n╰━─────────────────━╯".format(str(len(dataMid)))
                                   sendMeention(Pesan, ret_, dataMid)
-                          except Exception as Ough:
-                              print(Ough)
+                          except Exception as error:
+                              logError(error)
                         if InexBotsList == Menu["64"]:
                           if Dari in Owner or Dari in meM:
                             try:
@@ -2067,8 +2155,7 @@ def serviceX(rank):
                             except:me.sendMessage(Pesan,"SETTING ALL IN OFFLINE")
                         if InexBotsList == "menu" or InexBotsList == "key":
                           if Dari in Owner or Dari in meM:
-                              me.sendMessage(Pesan, extras+str(warKey))
-                              me.sendMessage(Line_Apikey,Devert)
+                              me.sendMessage(Pesan, extras+str(Helps))
                         if InexBotsList == "mybot" or InexBotsList == "Mybot":
                           if Dari in Owner or Dari in meM:
                               me.sendContact(Pesan,Denjaka1)
@@ -2291,31 +2378,6 @@ def serviceX(rank):
                                   profile.displayName = string
                                   jss.updateProfile(profile)
                                   jss.sendMessage(Pesan,"Nama diganti jadi " + string + "")
-                        if InexBotsList.startswith("maaf "):
-                          if Dari in Owner or Dari in meM:
-                              nk0 = msg.text.replace("maaf ","")
-                              nk1 = nk0.lstrip()
-                              nk2 = nk1.replace("@","")
-                              nk3 = nk2.rstrip()
-                              _name = nk3
-                              gs = me.getGroup(Pesan)
-                              targets = []
-                              for s in gs.members:
-                                  if _name in s.displayName:
-                                      targets.append(s.mid)
-                                  if targets == []:
-                                      pass
-                                  else:
-                                      for target in targets:
-                                          if target not in InexWars and target not in Owner and target not in meM:
-                                              try:
-                                                  InexBots["blacklist"][target] = True
-                                                  klist=[kk1,kk2,kk3,kk4,kk5]
-                                                  kicker=random.choice(klist)
-                                                  kicker.kickoutFromGroup(Pesan,[target])
-                                                  print (Pesan,[s.mid])
-                                              except Exception as A:
-                                                  print(A)
                         if InexBotsList == Menu["66"]:
                           if Dari in Owner or Dari in meM:
                             RunTheRun(Pesan, Dari, "[_______[RESULT]______]\n")
@@ -2325,6 +2387,7 @@ def serviceX(rank):
                             REVISION : VPS
                             """
         if rank.type == 25:
+          print ("[ 25 ] SEND MESSAGE")
           """
           BOT WAR
           VERSION : INEXBOTS
@@ -2484,6 +2547,7 @@ def serviceX(rank):
                              pass
 
         if rank.type == 26:
+          print ("[ 26 ] RECEIVE MESSAGE")
           if InexBots["bot"] == True:
             msg = rank.message
             text = msg.text
@@ -2688,8 +2752,8 @@ def serviceX(rank):
                                 ret_ += "\n╰━━━━══════════════"
                                 me.sendMessage(at, str(ret_))
                         del msg_dict[Id]
-                except Exception as e:
-                    print(e)
+                except Exception as error:
+                    logError(error)
             if InexBots["Unsend"] == True:
                 try:
                     at = Rumahku
@@ -2708,11 +2772,12 @@ def serviceX(rank):
                                 me.sendMessage(at, str(ret_))
                                 me.sendImage(at, msg_dict1[Id]["data"])
                         del msg_dict1[Id]
-                except Exception as e:
-                    print(e)
+                except Exception as error:
+                    logError(error)
 
         if rank.type == 55:
             Gr = Rumahku
+            print("[55] NOTIF READ")
             try:
                 if Sid['Tar'][Gr]==True:
                         if Gr in Sid['Red']:
@@ -2742,7 +2807,7 @@ def serviceX(rank):
         else:
             pass
     except Exception as error:
-        ErrorX(error)
+        logError(error)
         if rank.type == 59:
             print(rank)
 while True:
@@ -2753,4 +2818,5 @@ while True:
           serviceX(rank)
           oepoll.setRevision(rank.revision)
     except Exception as e:
+        logError(error)
         me.log("RESPONSE: " + str(e))

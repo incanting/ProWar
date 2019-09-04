@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
 from akad.ttypes import ApplicationType
 import re
-Ap_Header = ApplicationType._VALUES_TO_NAMES[304]
-Ap_Version = '8.11.0'
+
 class Config(object):
     LINE_HOST_DOMAIN            = 'https://gd2.line.naver.jp'
     LINE_OBS_DOMAIN             = 'https://obs-sg.line-apps.com'
@@ -19,9 +18,10 @@ class Config(object):
     LINE_CHAN_QUERY_PATH        = '/CH4'
     LINE_SQUARE_QUERY_PATH      = '/SQS1'
     LINE_SHOP_QUERY_PATH        = '/SHOP4'
+    LINE_LIFF_QUERY_PATH        = '/LIFF1'
 
     CHANNEL_ID = {
-        'LINE_TIMELINE': '1341209850',
+        'LINE_TIMELINE': '1341209950',
         'LINE_WEBTOON': '1401600689',
         'LINE_TODAY': '1518712866',
         'LINE_STORE': '1376922440',
@@ -29,11 +29,11 @@ class Config(object):
         'LINE_SERVICES': '1459630796'
     }
 
-    APP_TYPE    = Ap_Header
-    APP_VER     = Ap_Version
+    APP_TYPE    = ApplicationType._VALUES_TO_NAMES[400]
+    APP_VER     = '5.5.5'
     CARRIER     = '51089, 1-0'
-    SYSTEM_NAME = 'InexBots'
-    SYSTEM_VER  = '8.22.17'
+    SYSTEM_NAME = 'By.InexBots'
+    SYSTEM_VER  = '11.2.5'
     IP_ADDR     = '8.8.8.8'
     EMAIL_REGEX = re.compile(r"[^@]+@[^@]+\.[^@]+")
 

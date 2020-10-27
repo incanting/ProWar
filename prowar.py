@@ -26,38 +26,38 @@ Menu = json.load(Helps)
 #========================================================================
 #========================================================================
 print("\n               [SB]")
-me = LINE("og.7@outlook.com","perez123")
+me = LINE("og.7@outlook.com","perez567")
 me.log("Auth Token : " + str(me.authToken))
 meProfile = me.getProfile()
 meSettings = me.getSettings()
 meM = meProfile.mid
 print("\n              [kicker1]")
-kk1 = LINE("pobeco9975@adeata.com","perez123")
+kk1 = LINE("pobeco9975@adeata.com","perez567")
 kk1.log("Auth Token : " + str(kk1.authToken))
 kk1Profile = kk1.getProfile()
 Denjaka1 = kk1Profile.mid
 print("\n             [Kicker2]")
-kk2 = LINE("lobaf80350@romail9.com","perez123")
+kk2 = LINE("lobaf80350@romail9.com","perez567")
 kk2.log(" Auth Token : " + str(kk2.authToken))
 kk2Profile = kk2.getProfile()
 Denjaka2 = kk2Profile.mid
 print("\n              [Kicker3]")
-kk3 = LINE("keveji4437@chikd73.com","perez123")
+kk3 = LINE("keveji4437@chikd73.com","perez567")
 kk3.log("Auth Token : " + str(kk3.authToken))
 kk3Profile = kk3.getProfile()
 Denjaka3 = kk3Profile.mid
 print("\n              [Kicker4]")
-kk4 = LINE("boyoba9612@gomail5.com","perez123")
+kk4 = LINE("boyoba9612@gomail5.com","perez567")
 kk4.log("Auth Token : " + str(kk4.authToken))
 kk4Profile = kk4.getProfile()
 Denjaka4 = kk4Profile.mid
 print("\n              [Kicker5]")
-kk5 = LINE("pobor21912@mailerv.net","perez123")
+kk5 = LINE("pobor21912@mailerv.net","perez567")
 kk5.log("Auth Token : " + str(kk5.authToken))
 kk5Profile = kk5.getProfile()
 Denjaka5 = kk5Profile.mid
 print("\n              [ANTI JS]")
-jss = LINE("katef59570@chikd73.com","perez123")
+jss = LINE("katef59570@chikd73.com","perez567")
 jss.log("Auth Token : " + str(jss.authToken))
 jssProfile = jss.getProfile()
 Antijs = jssProfile.mid

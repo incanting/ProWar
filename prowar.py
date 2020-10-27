@@ -26,13 +26,13 @@ Menu = json.load(Helps)
 #========================================================================
 #========================================================================
 print("\n               [SB]")
-me = LINE("yivekig433@ioxmail.net","perez123")
+me = LINE("og.7@outlook.com","perez123")
 me.log("Auth Token : " + str(me.authToken))
 meProfile = me.getProfile()
 meSettings = me.getSettings()
 meM = meProfile.mid
 print("\n              [kicker1]")
-kk1 = LINE("samigel792@xenzld.com","perez123")
+kk1 = LINE("pobeco9975@adeata.com","perez123")
 kk1.log("Auth Token : " + str(kk1.authToken))
 kk1Profile = kk1.getProfile()
 Denjaka1 = kk1Profile.mid

@@ -37,7 +37,7 @@ kk1.log("Auth Token : " + str(kk1.authToken))
 kk1Profile = kk1.getProfile()
 Denjaka1 = kk1Profile.mid
 print("\n             [Kicker2]")
-kk2 = LINE("lobaf80350@romail9.com","perez567")
+kk2 = LINE("fiwova7294@jah8.com","perez567")
 kk2.log(" Auth Token : " + str(kk2.authToken))
 kk2Profile = kk2.getProfile()
 Denjaka2 = kk2Profile.mid
